@@ -3,7 +3,7 @@ import { Node } from "@xliic/openapi-ast-node";
 import { version } from "react";
 
 export const configId = "openapi";
-export const extensionQualifiedId = "42Crunch.vscode-openapi";
+export const extensionQualifiedId = "MartinPicard.vscode-openapi";
 export enum OpenApiVersion {
   Unknown,
   V2,
