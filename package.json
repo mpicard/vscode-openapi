@@ -151,11 +151,6 @@
       "editor/title": [
         {
           "when": "openapiTwoEnabled || openapiThreeEnabled",
-          "command": "openapi.securityAudit",
-          "group": "navigation"
-        },
-        {
-          "when": "openapiTwoEnabled || openapiThreeEnabled",
           "command": "openapi.preview",
           "group": "navigation"
         }
@@ -345,15 +340,6 @@
         "title": "OpenAPI: add security scheme 'Oauth2 Authorization Code'"
       },
       {
-        "command": "openapi.securityAudit",
-        "title": "OpenAPI: perform security audit",
-        "enablement": "!openapiErrors",
-        "icon": {
-          "light": "./resources/42crunch_icon.svg",
-          "dark": "./resources/42crunch_icon.svg"
-        }
-      },
-      {
         "command": "openapi.addHost",
         "title": "OpenAPI: add 'host' entry"
       },
@@ -517,12 +503,6 @@
       "type": "object",
       "title": "OpenAPI",
       "properties": {
-        "openapi.securityAuditToken": {
-          "scope": "workbench",
-          "type": "string",
-          "default": null,
-          "description": "Authentication token for Security Audit"
-        },
         "openapi.sortOutlines": {
           "scope": "workbench",
           "type": "boolean",
