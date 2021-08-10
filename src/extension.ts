@@ -23,7 +23,7 @@ import { create as createWhatsNewPanel } from "./whatsnew";
 import { Cache } from "./cache";
 
 import * as yamlSchemaContributor from "./yaml-schema-contributor";
-
+import * as audit from "./audit/activate";
 import * as preview from "./preview";
 
 export function activate(context: vscode.ExtensionContext) {
@@ -58,11 +58,11 @@ export function activate(context: vscode.ExtensionContext) {
 
   const completionProvider = new CompletionItemProvider(context, cache);
   for (const selector of Object.values(selectors)) {
-    if (selector.language === "yaml") {
-      vscode.languages.registerCompletionItemProvider(selector, completionProvider, "'", '"');
-    } else {
-      vscode.languages.registerCompletionItemProvider(selector, completionProvider, '"');
-    }
+		if (selector.language === "yaml") {
+			vscode.languages.registerCompletionItemProvider(selector, completionProvider, "'", '"');
+		} else {
+			vscode.languages.registerCompletionItemProvider(selector, completionProvider, '"');
+		}
   }
 
   const jsonSchemaDefinitionProvider = new JsonSchemaDefinitionProvider(cache, externalRefProvider);
@@ -83,7 +83,7 @@ export function activate(context: vscode.ExtensionContext) {
   vscode.workspace.onDidChangeTextDocument((e) => cache.onDocumentChanged(e));
 
   yamlSchemaContributor.activate(context, cache);
-
+  audit.activate(context, cache);
   preview.activate(context, cache);
 
   if (previousVersion.major < currentVersion.major) {
